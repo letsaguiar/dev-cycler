@@ -29,8 +29,8 @@ export function ApplicationSidebar() {
 		{
 			title: "Tasks",
 			url: "/tasks",
-			icon: <ClipboardList />
-		}
+			icon: <ClipboardList />,
+		},
 	];
 
 	return (
@@ -42,7 +42,10 @@ export function ApplicationSidebar() {
 						<SidebarMenu>
 							{items.map((item) => (
 								<SidebarMenuItem key={item.title}>
-									<SidebarMenuButton isActive={!!matchRoute({ to: item.url })} asChild>
+									<SidebarMenuButton
+										isActive={!!matchRoute({ to: item.url })}
+										asChild
+									>
 										<Link to={item.url}>
 											{item.icon}
 											<span>{item.title}</span>
