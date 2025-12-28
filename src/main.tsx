@@ -1,8 +1,15 @@
+import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
+import { routeTree } from "./routeTree.gen.ts";
 import "./index.css";
-import App from "./App.tsx";
+
+const router = createRouter({ routeTree, basepath: "/dev-cycler" });
+declare module "@tanstack/react-router" {
+	interface Register {
+		router: typeof router;
+	}
+}
 
 const root = document.getElementById("root");
 if (!root) {
@@ -11,6 +18,6 @@ if (!root) {
 
 createRoot(root).render(
 	<StrictMode>
-		<App />
+		<RouterProvider router={router} />
 	</StrictMode>,
 );
