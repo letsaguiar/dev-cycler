@@ -15,7 +15,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  health-check:
+    uses: ./.github/workflows/health_check.yaml
+
   build-and-deploy:
+    needs: health-check
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
