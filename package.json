@@ -7,7 +7,8 @@
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"lint": "biome check --write",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"test:browser": "vitest --config=vitest.browser.config.ts"
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.0.0",
@@ -30,9 +31,11 @@
 		"@types/react": "^19.2.5",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.1",
+		"@vitest/browser-playwright": "^4.0.16",
 		"globals": "^16.5.0",
 		"typescript": "~5.9.3",
 		"vite": "^7.2.4",
-		"vitest": "^4.0.16"
+		"vitest": "^4.0.16",
+		"vitest-browser-react": "^2.0.2"
 	}
 }
