@@ -1,15 +1,21 @@
-import react from "@vitejs/plugin-react";
+import { defineConfig, mergeConfig } from "vitest/config";
 import { playwright } from "@vitest/browser-playwright";
-import { defineConfig } from "vitest/config";
+import viteConfig from "./vite.config";
 
-export default defineConfig({
-	plugins: [react()],
-	test: {
-		browser: {
-			enabled: true,
-			provider: playwright(),
-			// https://vitest.dev/config/browser/playwright
-			instances: [{ browser: "chromium" }],
+export default mergeConfig(
+	viteConfig as any,
+	defineConfig({
+		test: {
+			browser: {
+				enabled: true,
+				provider: playwright(),
+				instances: [
+					{
+						browser: "chromium",
+						viewport: { width: 1280, height: 720 },
+					},
+				],
+			},
 		},
-	},
-});
+	}),
+);
