@@ -22,7 +22,7 @@ export function ApplicationSidebar() {
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{ApplicationSidebarItems.map((item) => (
-								<SidebarMenuItem key={item.title}>
+								<SidebarMenuItem key={item.title} data-testid={item.testId}>
 									<SidebarMenuButton
 										isActive={!!matchRoute({ to: item.url })}
 										asChild

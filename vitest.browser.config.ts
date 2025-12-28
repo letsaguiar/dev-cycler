@@ -1,20 +1,16 @@
-import { defineConfig, mergeConfig } from "vitest/config";
 import { playwright } from "@vitest/browser-playwright";
+import { defineConfig, mergeConfig } from "vitest/config";
 import viteConfig from "./vite.config";
 
 export default mergeConfig(
-	viteConfig as any,
+	viteConfig,
 	defineConfig({
 		test: {
+			setupFiles: ["./test/testSetup.tsx"],
 			browser: {
 				enabled: true,
 				provider: playwright(),
-				instances: [
-					{
-						browser: "chromium",
-						viewport: { width: 1280, height: 720 },
-					},
-				],
+				instances: [{ browser: "chromium" }],
 			},
 		},
 	}),
