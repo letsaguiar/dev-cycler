@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
-import { Home } from "lucide-react";
+import { Link, useMatchRoute } from "@tanstack/react-router";
+import { ClipboardList, Home } from "lucide-react";
 import {
 	Sidebar,
 	SidebarContent,
@@ -18,12 +18,19 @@ interface ApplicationSidebarItem {
 }
 
 export function ApplicationSidebar() {
+	const matchRoute = useMatchRoute();
+
 	const items: ApplicationSidebarItem[] = [
 		{
-			title: "Home",
+			title: "Dashboard",
 			url: "/",
 			icon: <Home />,
 		},
+		{
+			title: "Tasks",
+			url: "/tasks",
+			icon: <ClipboardList />
+		}
 	];
 
 	return (
@@ -35,7 +42,7 @@ export function ApplicationSidebar() {
 						<SidebarMenu>
 							{items.map((item) => (
 								<SidebarMenuItem key={item.title}>
-									<SidebarMenuButton asChild>
+									<SidebarMenuButton isActive={!!matchRoute({ to: item.url })} asChild>
 										<Link to={item.url}>
 											{item.icon}
 											<span>{item.title}</span>
