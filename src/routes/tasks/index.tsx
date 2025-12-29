@@ -1,5 +1,10 @@
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { createFileRoute } from "@tanstack/react-router";
+import {
+	Card,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 
 export const Route = createFileRoute("/tasks/")({
 	component: TaskListingPage,
@@ -15,5 +20,5 @@ export function TaskListingPage() {
 				</CardHeader>
 			</Card>
 		</div>
-	)
+	);
 }
