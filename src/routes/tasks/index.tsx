@@ -1,3 +1,4 @@
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/tasks/")({
@@ -5,5 +6,14 @@ export const Route = createFileRoute("/tasks/")({
 });
 
 export function TaskListingPage() {
-	return <div>Hello "/tasks/"!</div>;
+	return (
+		<div data-testid="task-listing-page">
+			<Card>
+				<CardHeader>
+					<CardTitle>Task Management</CardTitle>
+					<CardDescription>Create and manage your tasks</CardDescription>
+				</CardHeader>
+			</Card>
+		</div>
+	)
 }

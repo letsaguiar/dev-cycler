@@ -10,6 +10,6 @@ describe("TasksPage", () => {
 	});
 
 	it("should render", () => {
-		expect(renderResult.getByText('Hello "/tasks/"!'));
+		expect(renderResult.getByTestId("task-listing-page")).toBeInTheDocument();
 	});
 });

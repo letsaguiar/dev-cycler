@@ -7,7 +7,7 @@ function RootLayout() {
 	return (
 		<SidebarProvider>
 			<ApplicationSidebar />
-			<main>
+			<main className="w-full">
 				<SidebarTrigger />
 				<div className="px-16 py-8">
 					<Outlet />
