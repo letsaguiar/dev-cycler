@@ -1,4 +1,5 @@
 import type { ColumnDef } from "@tanstack/react-table";
+import { format } from "date-fns";
 import type { Task } from "@/stores/tasks/types";
 
 export const columns: ColumnDef<Task>[] = [
@@ -13,5 +14,9 @@ export const columns: ColumnDef<Task>[] = [
 	{
 		accessorKey: "createdAt",
 		header: "Created At",
+		cell: ({ row }) => {
+			const createdAt = row.original.createdAt;
+			return <span>{format(createdAt, "yyyy-MM-dd HH:mm")}</span>;
+		},
 	},
 ];
