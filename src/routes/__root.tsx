@@ -9,7 +9,9 @@ function RootLayout() {
 			<ApplicationSidebar />
 			<main>
 				<SidebarTrigger />
-				<Outlet />
+				<div className="px-16 py-8">
+					<Outlet />
+				</div>
 				<TanStackRouterDevtools />
 			</main>
 		</SidebarProvider>
